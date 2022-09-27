@@ -166,3 +166,95 @@ input[type="submit"]:hover {
   padding: 10px 0;
   border-radius: 0 0 4px 4px;
 }
+
+
+#account-form-wrap{
+  background-color: #fff;
+  width: 60%;
+  margin: 110px auto;
+  text-align: center;
+  padding: 15px 80px 100px 40px;
+  border-radius: 4px;
+  box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
+}
+
+#account-form-wrap{
+  height: 500px;
+  width: 1000px;
+}
+
+.block1 {
+  width: 50%;
+  float: left;
+}
+
+.block2 {
+  width: 50%;
+  float: right;
+}
+#button {
+  margin: 0px 1000px;
+text-decoration: none;
+  color: #2b3e51;
+}
+
+nav ul {
+  height:290px; width:100%;
+}
+nav ul{
+  overflow:hidden; overflow-y:scroll;
+}
+
+input[id="account_exit"] {
+  border: none;
+  background-color: #3ca9e2;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  line-height: normal;
+  margin: 0px 0px 0px 1030px;
+
+}
+
+input[id="account_exit"]:hover {
+  background-color: #329dd5;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+input[id="registration_exit"] {
+  border: none;
+  background-color: #3ca9e2;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  line-height: normal;
+  margin: 0px 0px 0px 400px;
+
+}
+
+input[id="registration_exit"]:hover {
+  background-color: #329dd5;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+
