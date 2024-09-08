@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.entity.UserInfo;
 
 public interface UserInfoRepository extends JpaRepository<UserInfo, Integer> {
-    Optional<UserInfo> findByName(String username);
+    Optional<UserInfo> findByPhone(String phone);
 
 }

@@ -14,6 +14,9 @@
         <div th:if="${param.logout}">
             Вы вышли из системы
         </div>
+        <div th:if="${param.registration_success}">
+            Регистрация прошла успешно
+        </div>
         <form th:action="@{/login}" method="post" id="login-form">
             <p>
                 <input type="tel" id="phone" name="username" placeholder="Номер телефона"

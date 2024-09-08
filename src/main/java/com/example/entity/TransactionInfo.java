@@ -4,25 +4,26 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.lang.reflect.Type;
+import java.util.Date;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
-public class UserInfo {
+@Table(name = "transaction")
+public class TransactionInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String name;
-    private String password;
-    private String familyName;
-    @Column(unique = true)
-    private String phone;
+    Integer id;
+    String ownerId;
+    Integer amount;
+    Date dateTransaction;
+    String typeOperation;
+
 }

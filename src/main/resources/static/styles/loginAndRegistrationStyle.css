@@ -189,8 +189,10 @@ input[type="submit"]:hover {
 }
 
 .block2 {
-  width: 50%;
+  width: 48%;
   float: right;
+  overflow: scroll;
+  height: 400px;
 }
 #button {
   margin: 0px 1000px;

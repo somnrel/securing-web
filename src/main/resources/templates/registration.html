@@ -12,16 +12,19 @@
 		<input id="registration_exit" type="submit" value="X"/>
 	</form>
 	<h2>Регистрация</h2>
-	<form id="registration-form">
+	<form id="registration-form" method="post" th:action="@{/create/user}" th:object="${userInfo}">
 		<p>
-			<input type="text" id="text" name="name" placeholder="Имя" required><i class="validation"><span></span><span></span></i>
+			<input type="text" id="name" th:field = "*{name}" placeholder="Имя" required><i class="validation"><span></span><span></span></i>
 		</p>
 		<p>
-			<input type="tel" id="phone" name="phone" placeholder="Номер телефона"
+			<input type="text" id="familyName" th:field = "*{familyName}" placeholder="Фамилия" required><i class="validation"><span></span><span></span></i>
+		</p>
+		<p>
+			<input type="tel" id="phone" name="phone" th:field = "*{phone}" placeholder="Номер телефона"
 				   pattern="(^8|7|\+7)((\d{10})|(\s\(\d{3}\)\s\d{3}\s\d{2}\s\d{2}))" maxLength="12" required><i class="validation"><span></span><span></span></i>
 		</p>
 		<p>
-			<input type="password" id="password" name="password" placeholder="Пароль" required><i class="validation"><span></span><span></span></i>
+			<input type="password" id="password" name="password" th:field = "*{password}" placeholder="Пароль" required><i class="validation"><span></span><span></span></i>
 		</p>
 		<p>
 			<input type="submit" id="register" value="Зарегистрироваться">
