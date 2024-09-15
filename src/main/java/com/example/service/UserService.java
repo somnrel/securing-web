@@ -22,9 +22,17 @@ public class UserService {
         repository.save(userInfo);
     }
 
-    public UserInfo getUser(String phone) {
+    public UserInfo findByPhone(String phone) {
         Optional<UserInfo> userInfo = repository.findByPhone(phone);
         return userInfo.orElse(null);
     }
 
+    public UserInfo findById(Integer id) {
+        Optional<UserInfo> userInfo = repository.findById(id);
+        return userInfo.orElse(null);
+    }
+
+    public boolean isUserExists(String phone) {
+        return repository.existsByPhone(phone);
+    }
 }

@@ -28,7 +28,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .antMatchers("/", "/login",  "/home", "/create/user", "/registration", "/transactions", "/**/*.css").permitAll()
+                        .antMatchers("/", "/login",  "/home", "/create/user", "/registration", "/transactions", "/isUserExists/*", "/getTotalTransactionAmount/*", "/**/*.css").permitAll()
                         .anyRequest().authenticated())
                 .csrf().disable()
 
@@ -51,7 +51,7 @@ public class WebSecurityConfig {
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
         PasswordEncoder encoder = passwordEncoder();
-        UserDetails user = User.withUsername("89965013611")
+        UserDetails user = User.withUsername("+79965013611")
                 .password(encoder.encode("1"))
                 .roles("USER")
                 .build();

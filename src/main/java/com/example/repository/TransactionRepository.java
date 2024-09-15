@@ -13,4 +13,7 @@ public interface TransactionRepository extends JpaRepository<TransactionInfo, In
     @Query(value = "  SELECT CASE typeOperation WHEN 'ADD' THEN 'Начисление' WHEN 'SUB' THEN 'Списание' END AS typeOperation, amount, dateTransaction, ownerId, id  FROM transaction t where t.ownerId = :ownerId", nativeQuery = true)
     List<TransactionInfo> findByOwnerId(Integer ownerId);
 
+    @Query(value = "SELECT SUM(amount) from `transaction` t WHERE ownerId = (select id from users u WHERE phone = :phone)", nativeQuery = true)
+    int getTotalTransactionAmount(String phone);
+
 }

@@ -7,10 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.entity.TransactionInfo;
 import com.example.entity.UserInfo;
 import com.example.service.TransactionService;
@@ -30,7 +29,7 @@ public class UserController {
         return "Welcome this endpoint is not secure";
     }
 
-    @GetMapping("registration")
+    @GetMapping("/registration")
     public String showRegistrationForm(Model model) {
         UserInfo userInfo = new UserInfo();
         model.addAttribute("userInfo", userInfo);
@@ -46,12 +45,18 @@ public class UserController {
 
     @GetMapping("/privateOffice")
     public String getModelForPrivateOffice(Model model, Principal principal) {
-        UserInfo user = service.getUser(principal.getName());
+        UserInfo user = service.findByPhone(principal.getName());
         List<TransactionInfo> transactionInfos = transactionService.findByOwner(user.getId());
 
         model.addAttribute("userInfo", user);
         model.addAttribute("transactionInfos", transactionInfos);
         return "privateOffice";
+    }
+
+    @ResponseBody
+    @GetMapping("/isUserExists/{phone}")
+    public boolean isUserExists(@PathVariable String phone) {
+        return service.isUserExists(phone);
     }
 
 }
