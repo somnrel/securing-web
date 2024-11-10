@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Детали запроса на изменение</title>
+</head>
+<body>
+<h1>Детали запроса на изменение</h1>
+
+<div>
+  <p><strong>ID Запроса:</strong> <span th:text="${changeRequest.changeRequestID}"></span></p>
+  <p><strong>Заголовок:</strong> <span th:text="${changeRequest.title}"></span></p>
+  <p><strong>Описание:</strong> <span th:text="${changeRequest.description}"></span></p>
+  <p><strong>Запросил:</strong> <span th:text="${changeRequest.requestedBy.username}"></span></p> <!-- Предполагается, что у User есть поле username -->
+  <p><strong>Дата запроса:</strong> <span th:text="${#dates.format(changeRequest.requestDate, 'dd-MM-yyyy HH:mm')}"></span></p></p>
+  <p><strong>Статус:</strong> <span th:text="${changeRequest.status}"></span></p>
+  <p><strong>Приоритет:</strong> <span th:text="${changeRequest.priority}"></span></p>
+</div>
+
+<div>
+  <h2>История изменений</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Дата</th>
+      <th>Действие</th>
+      <th>Пользователь</th>
+      <th>Комментарий</th>
+    </tr>
+    </thead>
+  </table>
+</div>
+
+<div>
+  <h2>Комментарии</h2>
+  <textarea rows="4" cols="50"></textarea>
+  <button type="button">Добавить комментарий</button>
+</div>
+
+<div>
+  <button onclick="window.location.href='/change-request/edit/${changeRequest.id}'">Изменить</button>
+  <button type="button">Закрыть</button>
+</div>
+</body>
+</html>

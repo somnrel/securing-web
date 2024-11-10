@@ -5,10 +5,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.entity.UserInfo;
 
 public interface UserInfoRepository extends JpaRepository<UserInfo, Integer> {
-    Optional<UserInfo> findByPhone(String phone);
-
-    Optional<UserInfo> findById(Integer id);
-
-    boolean existsByPhone(String phone);
-
 }

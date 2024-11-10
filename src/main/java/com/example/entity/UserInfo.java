@@ -1,28 +1,37 @@
 package com.example.entity;
 
+import com.example.entity.enumVar.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
+@Table(name = "Users")
 public class UserInfo {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String name;
-    private String password;
-    private String familyName;
-    @Column(unique = true)
-    private String phone;
+    private Integer userID;
+
+    @Column(unique = true, nullable = false, length = 50)
+    private String username;
+
+    @Column(nullable = false)
+    private String passwordHash;
+
+    @Column(unique = true, nullable = false, length = 100)
+    private String email;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @Column(name = "createdAt")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
+
+
 }
