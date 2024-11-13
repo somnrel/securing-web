@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Создание нового запроса на изменение</title>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link th:href="@{/styles/userStyles.css}" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script>
         $(function () {
             $("#dueDate").datepicker();
@@ -14,44 +16,50 @@
     </script>
 </head>
 <body>
-<h1>Создание нового запроса на изменение</h1>
-<form action="/submitChangeRequest" method="POST">
-    <label for="title">Название изменения:</label>
-    <input type="text" id="title" name="title" required><br>
+<div class="container"> <!-- Добавлен контейнер -->
+    <h1>Создание нового запроса на изменение</h1>
+    <form action="/submitChangeRequest" method="POST">
+        <label for="title">Название изменения:</label>
+        <input type="text" id="title" name="title" required><br/>
 
-    <label for="description">Описание изменения:</label>
-    <input type="text" id="description" name="description" required><br>
+        <label for="description">Описание изменения:</label>
+        <input type="text" id="description" name="description" required><br/>
 
-    <label for="reason">Причина изменения:</label>
-    <select id="reason" name="reason">
-        <option value="по запросу пользователя">По запросу пользователя</option>
-        <option value="по внутренним стандартам">По внутренним стандартам</option>
-        <option value="в ответ на инцидент">В ответ на инцидент</option>
-    </select><br>
+        <label for="reason">Причина изменения:</label>
+        <select id="reason" name="reason">
+            <option value="по запросу пользователя">По запросу пользователя</option>
+            <option value="по внутренним стандартам">По внутренним стандартам</option>
+            <option value="в ответ на инцидент">В ответ на инцидент</option>
+        </select><br/>
 
-    <label>Приоритет:</label>
-    <input type="radio" id="low" name="priority" value="Низкий">
-    <label for="low">Низкий</label>
-    <input type="radio" id="medium" name="priority" value="Средний">
-    <label for="medium">Средний</label>
-    <input type="radio" id="high" name="priority" value="Высокий">
-    <label for="high">Высокий</label><br>
+        <label for="priority">Приоритет:</label>
+        <div class="radio-group">
+            <input type="radio" id="low" name="priority" value="Низкий">
+            <label for="low">Низкий</label>
 
-    <label for="dueDate">Дата окончания:</label>
-    <input type="text" id="dueDate" name="dueDate"><br>
+            <input type="radio" id="medium" name="priority" value="Средний">
+            <label for="medium">Средний</label>
 
-    <label for="responsible">Ответственный:</label>
-    <select id="responsible" name="responsible">
-        <option value="Пользователь 1">Пользователь 1</option>
-        <option value="Пользователь 2">Пользователь 2</option>
-        <option value="Пользователь 3">Пользователь 3</option>
-    </select><br>
+            <input type="radio" id="high" name="priority" value="Высокий">
+            <label for="high">Высокий</label>
+        </div>
 
-    <label for="attachments">Вложения:</label>
-    <input type="file" id="attachments" name="attachments"><br>
+        <label for="dueDate">Дата окончания:</label>
+        <input type="text" id="dueDate" name="dueDate"><br/>
 
-    <button type="submit">Сохранить</button>
-    <button type="button" onclick="window.location.href='/'">Отмена</button>
-</form>
+        <label for="responsible">Ответственный:</label>
+        <select id="responsible" name="responsible">
+            <option value="Пользователь 1">Пользователь 1</option>
+            <option value="Пользователь 2">Пользователь 2</option>
+            <option value="Пользователь 3">Пользователь 3</option>
+        </select><br/>
+
+        <label for="attachments">Вложения:</label>
+        <input type="file" id="attachments" name="attachments"><br/>
+
+        <button type="submit">Сохранить</button>
+        <a href="/users">Отмена</a>
+    </form>
+</div>
 </body>
 </html>

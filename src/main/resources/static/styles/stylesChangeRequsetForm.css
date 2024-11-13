@@ -1,0 +1,85 @@
+/* Основной стиль для body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Заголовок */
+h1 {
+    color: #004d00;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Основной контейнер для формы */
+form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Ширина формы */
+    margin: 0 auto; /* Центрируем форму */
+}
+
+/* Стили для заголовков внутри формы */
+label {
+    font-weight: bold;
+    margin-top: 10px; /* Добавляем отступ сверху */
+    display: inline-block; /* Делаем метки блочными элементами для отступов */
+}
+
+/* Стили для полей ввода и textarea */
+input[type="text"],
+input[type="file"],
+select {
+    width: 100%; /* Полная ширина */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    box-sizing: border-box; /* Обеспечиваем правильный расчет ширины */
+    margin-bottom: 20px; /* Отступ между полями */
+}
+
+/* Стили для радио-кнопок */
+input[type="radio"] {
+    margin: 0 5px; /* Отступ между радио-кнопками */
+}
+
+/* Стили для кнопок */
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838; /* Темнее при наведении */
+}
+
+/* Стили для кнопки "Отмена" */
+button[type="button"] {
+    background-color: #dc3545; /* Красный цвет */
+}
+
+button[type="button"]:hover {
+    background-color: #c82333; /* Темнее при наведении */
+}
+
+/* Стиль для выпадающего списка */
+select {
+    font-family: Arial, sans-serif; /* Устанавливаем шрифт */
+}
+
+/* Стили для сообщений об ошибках (если нужно в будущем) */
+.error {
+    color: #dc3545; /* Красный цвет для ошибок */
+}

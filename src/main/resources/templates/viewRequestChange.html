@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Детали запроса на изменение</title>
+  <link th:href="@{/styles/userStyles.css}" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <h1>Детали запроса на изменение</h1>
 
 <div>
-  <p><strong>ID Запроса:</strong> <span th:text="${changeRequest.changeRequestID}"></span></p>
+  <p><strong>ID Запроса:</strong> <span th:text="${changeRequest.id}"></span></p>
   <p><strong>Заголовок:</strong> <span th:text="${changeRequest.title}"></span></p>
   <p><strong>Описание:</strong> <span th:text="${changeRequest.description}"></span></p>
   <p><strong>Запросил:</strong> <span th:text="${changeRequest.requestedBy.username}"></span></p> <!-- Предполагается, что у User есть поле username -->
