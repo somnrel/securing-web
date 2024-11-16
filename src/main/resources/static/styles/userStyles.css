@@ -37,7 +37,8 @@ form label {
     color: #4CAF50;
 }
 
-form input, form select {
+form input,
+form select {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -45,7 +46,8 @@ form input, form select {
     transition: border-color 0.3s;
 }
 
-form input:focus, form select:focus {
+form input:focus,
+form select:focus {
     border-color: #4CAF50;
     outline: none;
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
@@ -87,4 +89,30 @@ a:hover {
 
 .radio-group input[type="radio"] {
     margin-top: 20px; /* Отступ между радиокнопкой и текстом */
+}
+
+/* Стили для KPI отчетов */
+.kpi-card {
+    background-color: #e7f3fe; /* Цвет фона карточки KPI */
+    padding: 20px; /* Внутренние отступы */
+    margin-bottom: 20px; /* Отступ между карточками */
+    border-radius: 5px; /* Закругленные углы карточек */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+.kpi-title {
+    font-size: 20px; /* Размер заголовка для KPI */
+    margin-bottom: 10px; /* Отступ под заголовком */
+    color: #007bff; /* Цвет заголовка */
+}
+
+.kpi-value {
+    font-size: 36px; /* Размер значения KPI */
+    font-weight: bold; /* Жирный шрифт для значения */
+    color: #4CAF50; /* Цвет значения KPI */
+}
+
+.kpi-footer {
+    font-size: 16px; /* Размер текста в подвале карточки */
+    color: #6c757d; /* Цвет текста */
 }

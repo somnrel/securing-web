@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Отчеты и KPI</title>
+    <link th:href="@{/styles/userStyles.css}" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Экран отчетов и KPI</h1>
+
+    <!-- Отчет по ключевым показателям -->
+    <div class="kpi-card">
+        <div class="kpi-title">Процент успешно завершенных изменений</div>
+        <div class="kpi-value" th:text="${successRate} + '%'"></div>
+        <div class="kpi-footer">Общее количество изменений: <span th:text="${totalChanges}"></span></div>
+    </div>
+
+    <div class="kpi-card">
+        <div class="kpi-title">Процент отклоненных изменений</div>
+        <div class="kpi-value" th:text="${rejectionRate} + '%'"></div>
+        <div class="kpi-footer">Количество отклоненных изменений: <span th:text="${rejectedChanges}"></span></div>
+    </div>
+
+    <div class="kpi-card">
+        <div class="kpi-title">Количество входящих запросов на изменения</div>
+        <div class="kpi-value" th:text="${incomingRequests}"></div>
+        <div class="kpi-footer">Запросы на временной шкале</div>
+    </div>
+
+    <!-- Здесь можно добавить другие элементы интерфейса -->
+</div>
+</body>
+</html>

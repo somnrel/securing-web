@@ -1,8 +1,18 @@
 package com.example.entity.enumVar;
 
+import lombok.Getter;
+
+@Getter
 public enum Status {
-    PENDING,
-    IN_PROGRESS,
-    COMPLETED,
-    REJECTED;
+    PENDING("В ожидании"),
+    IN_PROGRESS("В процессе"),
+    COMPLETED("Завершено"),
+    REJECTED("Отклонено");
+
+    private final String displayName;
+
+    Status(String displayName) {
+        this.displayName = displayName;
+    }
+
 }

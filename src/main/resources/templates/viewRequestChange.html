@@ -2,41 +2,50 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Детали запроса на изменение</title>
+  <title>Просмотр подробностей запроса на изменение</title>
   <link th:href="@{/styles/userStyles.css}" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>Детали запроса на изменение</h1>
+<div class="container">
+  <h1>Просмотр подробностей запроса на изменение</h1>
 
-<div>
-  <p><strong>ID Запроса:</strong> <span th:text="${changeRequest.id}"></span></p>
-  <p><strong>Заголовок:</strong> <span th:text="${changeRequest.title}"></span></p>
-  <p><strong>Описание:</strong> <span th:text="${changeRequest.description}"></span></p>
-  <p><strong>Запросил:</strong> <span th:text="${changeRequest.requestedBy.username}"></span></p> <!-- Предполагается, что у User есть поле username -->
-  <p><strong>Дата запроса:</strong> <span th:text="${#dates.format(changeRequest.requestDate, 'dd-MM-yyyy HH:mm')}"></span></p></p>
-  <p><strong>Статус:</strong> <span th:text="${changeRequest.status}"></span></p>
-  <p><strong>Приоритет:</strong> <span th:text="${changeRequest.priority}"></span></p>
-</div>
+  <!-- Общая информация -->
+  <div>
+    <h2>Общая информация</h2>
+    <p><strong>Название изменения:</strong> <span th:text="${changeRequest.title}"></span></p>
+    <p><strong>Описание:</strong> <span th:text="${changeRequest.description}"></span></p>
+    <p><strong>Приоритет:</strong> <span th:text="${changeRequest.priority.displayName}"></span></p>
+    <p><strong>Статус:</strong> <span th:text="${changeRequest.status.displayName}"></span></p>
+  </div>
 
-<div>
-  <h2>История изменений</h2>
-  <table>
-    <thead>
-    <tr>
-      <th>Дата</th>
-      <th>Действие</th>
-      <th>Пользователь</th>
-      <th>Комментарий</th>
-    </tr>
-    </thead>
-  </table>
-</div>
+  <!-- История изменений -->
+  <div>
+    <h2>История изменений</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Дата</th>
+        <th>Действие</th>
+        <th>Пользователь</th>
+        <th>Комментарий</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="historyItem : ${history}">
+        <td th:text="${#dates.format(historyItem.date, 'dd.MM.yyyy HH:mm')}"></td>
+        <td th:text="${historyItem.action.displayName}"></td>
+        <td th:text="${historyItem.user.username}"></td>
+        <td th:text="${historyItem.comment}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
 <div>
   <h2>Комментарии</h2>
   <textarea rows="4" cols="50"></textarea>
-  <button type="button">Добавить комментарий</button>
+  <button id="button_comment" type="button">Добавить комментарий</button>
 </div>
 
 <div>
